@@ -1,0 +1,5 @@
+run:
+  output_dir: /scratch4/workspace/ypathak_umass_edu-pref-steer/mech_pref_artifacts
+
+model:
+  dtype: fp16   # V100 has no bfloat16 kernels

@@ -1,0 +1,12 @@
+run:
+  output_dir: /scratch4/workspace/ypathak_umass_edu-pref-steer/mech_pref_artifacts
+
+data:
+  direction_model: beaver   # direction = mean(h_beaver_safe) - mean(h_beaver_unsafe)
+  harm_category: all
+  min_severity: 2
+  safe_max_severity: 0
+
+activations:
+  pooling: response_first
+  batch_size: 4             # A100/H100 — use 1 for V100

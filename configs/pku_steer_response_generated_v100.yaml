@@ -1,0 +1,24 @@
+run:
+  output_dir: /scratch4/workspace/ypathak_umass_edu-pref-steer/mech_pref_artifacts
+
+model:
+  dtype: fp16
+
+data:
+  harm_category: all
+  min_severity: 1      # any harmful prompt — we generate from scratch
+
+activations:
+  pooling: response_generated
+  batch_size: 1        # generation is always 1-at-a-time
+
+steering:
+  alphas: [10.0]
+  top_k_layers: 8
+  max_new_tokens: 128
+  n_prompts: 750
+
+eval:
+  cost_model_id: PKU-Alignment/beaver-7b-v1.0-cost
+  batch_size: 4
+  cost_threshold: 0.0

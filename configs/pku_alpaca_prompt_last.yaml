@@ -1,0 +1,5 @@
+run:
+  output_dir: /scratch4/workspace/ypathak_umass_edu-pref-steer/mech_pref_artifacts
+
+activations:
+  pooling: prompt_last

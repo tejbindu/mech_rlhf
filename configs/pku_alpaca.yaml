@@ -1,0 +1,27 @@
+run:
+  output_dir: /scratch4/workspace/ypathak_umass_edu-pref-steer/mech_pref_artifacts
+  seed: 42
+
+model:
+  alpaca_id: PKU-Alignment/alpaca-7b-reproduced
+  beaver_id: PKU-Alignment/beaver-7b-v1.0
+  dtype: bf16       # use fp16 for V100, fp32 to disable mixed precision
+  device_map: auto
+
+data:
+  dataset: PKU-Alignment/PKU-SafeRLHF
+  subset: alpaca-7b
+  harm_category: all    # "all" = any harm category; or specific e.g. "Physical Harm"
+  min_severity: 2
+  safe_max_severity: 0  # counterpart severity <= this; 0 = no harm detected
+  n_samples: null
+  seed: 42
+
+activations:
+  max_length: 2048
+  batch_size: 4
+
+probes:
+  test_size: 0.2    # fraction held out for AUROC evaluation
+  max_iter: 1000
+  n_jobs: 4

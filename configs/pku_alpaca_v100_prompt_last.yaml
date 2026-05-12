@@ -1,0 +1,9 @@
+run:
+  output_dir: /scratch4/workspace/ypathak_umass_edu-pref-steer/mech_pref_artifacts
+
+model:
+  dtype: fp16
+
+activations:
+  pooling: prompt_last
+  batch_size: 1   # V100 32GB: 7B fp16 model leaves limited headroom for activations
